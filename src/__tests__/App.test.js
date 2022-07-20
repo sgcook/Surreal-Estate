@@ -1,9 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import React from "react";
+import { render } from "@testing-library/react";
 import App from "../components/App";
 
-test("renders learn react link", () => {
-  render(<App />);
-  expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
-    "Surreal Estate"
-  );
+describe("App", () => {
+  test("renders App", () => {
+    const { asFragment } = render(<App />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

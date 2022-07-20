@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders App 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="navbar"
+    >
+      <img
+        alt="surrealEstateLogo"
+        class="surrealEstateLogo"
+        src="surrealEstateLogo.png"
+      />
+      <ul
+        class="navbar-links"
+      >
+        <a
+          class="navbar-links-item"
+          href="/"
+        >
+          View Properties
+        </a>
+        <a
+          class="navbar-links-item"
+          href="/add-property"
+        >
+          Add Property
+        </a>
+      </ul>
+    </div>
+    <div
+      class="properties-page"
+    >
+      Properties Page
+      <div
+        class="property-card"
+      >
+        I am a property card
+        <h3>
+          beautiful home
+        </h3>
+        <ul
+          class="property-card__list"
+        >
+          <li
+            class="type-ctiy"
+          >
+            bungalow - Leeds
+          </li>
+          <li
+            class="bathrooms"
+          >
+             3
+          </li>
+          <li
+            class="bedrooms"
+          >
+             2
+          </li>
+          <li
+            class="price"
+          >
+            £20000
+          </li>
+        </ul>
+        <p
+          class="email-p"
+        >
+          <a
+            class="email-link"
+            href="mailto:joe@gmail.com"
+          >
+            Email
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
