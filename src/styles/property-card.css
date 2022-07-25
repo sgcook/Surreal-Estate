@@ -1,0 +1,43 @@
+.property-card {
+  padding-left: 10px;
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-rows: 20% 50% 30%;
+}
+
+.property-card__list {
+  list-style: none;
+}
+
+.type-city {
+  font-style: italic;
+}
+
+.email-p {
+  width: 100%;
+  background-color: purple;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  align-self: center;
+}
+
+.email-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Media Query */
+@media only screen and (max-width: 768px) {
+  .property-card {
+    text-align: center;
+    padding: 0;
+  }
+
+  .property-card__list {
+    text-align: center;
+    padding: 0;
+  }
+}

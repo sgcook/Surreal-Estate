@@ -20,12 +20,12 @@ exports[`PropertyCard renders PropertyCard 1`] = `
       <li
         class="bathrooms"
       >
-         3
+        3
       </li>
       <li
         class="bedrooms"
       >
-         2
+        2
       </li>
       <li
         class="price"

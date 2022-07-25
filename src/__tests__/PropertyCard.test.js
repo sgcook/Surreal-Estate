@@ -8,7 +8,7 @@ describe("PropertyCard", () => {
     bedrooms: 2,
     city: "Leeds",
     email: "joe@gmail.com",
-    price: 20000,
+    price: "20000.00",
     title: "beautiful home",
     type: "bungalow",
   };
@@ -29,7 +29,7 @@ describe("PropertyCard", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test("renders title prop correctly", () => {
+  test("renders bathroom prop correctly", () => {
     const { getByText } = render(
       <PropertyCard
         bathrooms={validProps.bathrooms}
@@ -42,10 +42,58 @@ describe("PropertyCard", () => {
       />
     );
 
-    expect(getByText("beautiful home")).toBeInstanceOf(HTMLHeadingElement);
+    expect(getByText("3")).toHaveClass("bathrooms");
   });
 
-  test("renders type and city props correctly", () => {
+  test("renders bedroom prop correctly", () => {
+    const { getByText } = render(
+      <PropertyCard
+        bathrooms={validProps.bathrooms}
+        bedrooms={validProps.bedrooms}
+        city={validProps.city}
+        email={validProps.email}
+        price={validProps.price}
+        title={validProps.title}
+        type={validProps.type}
+      />
+    );
+
+    expect(getByText("2")).toHaveClass("bedrooms");
+  });
+
+  test("renders email prop correctly", () => {
+    const { getByText } = render(
+      <PropertyCard
+        bathrooms={validProps.bathrooms}
+        bedrooms={validProps.bedrooms}
+        city={validProps.city}
+        email={validProps.email}
+        price={validProps.price}
+        title={validProps.title}
+        type={validProps.type}
+      />
+    );
+
+    expect(getByText("Email")).toHaveAttribute("href", "mailto:joe@gmail.com");
+  });
+
+  test("renders price prop correctly", () => {
+    const { getByText } = render(
+      <PropertyCard
+        bathrooms={validProps.bathrooms}
+        bedrooms={validProps.bedrooms}
+        city={validProps.city}
+        email={validProps.email}
+        price={validProps.price}
+        title={validProps.title}
+        type={validProps.type}
+      />
+    );
+
+    expect(getByText("£20000")).toHaveClass("price");
+  });
+
+  test("renders city and type props correctly", () => {
     const { getByText } = render(
       <PropertyCard
         bathrooms={validProps.bathrooms}
@@ -61,7 +109,7 @@ describe("PropertyCard", () => {
     expect(getByText("bungalow - Leeds")).toBeInstanceOf(HTMLLIElement);
   });
 
-  test("renders bathroom prop correctly", () => {
+  test("renders title prop correctly", () => {
     const { getByText } = render(
       <PropertyCard
         bathrooms={validProps.bathrooms}
@@ -74,6 +122,6 @@ describe("PropertyCard", () => {
       />
     );
 
-    expect(getByText("3")).toHaveClass("bathrooms");
+    expect(getByText("beautiful home")).toBeInstanceOf(HTMLHeadingElement);
   });
 });
