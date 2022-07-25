@@ -1,0 +1,10 @@
+.sidebar-list {
+  list-style: none;
+}
+
+.sidebar-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: rgb(0,0,0);
+}
