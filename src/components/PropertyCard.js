@@ -45,8 +45,8 @@ export default PropertyCard;
 PropertyCard.propTypes = {
   title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  bathrooms: PropTypes.number.isRequired,
-  bedrooms: PropTypes.number.isRequired,
+  bathrooms: PropTypes.string.isRequired,
+  bedrooms: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   /* fix price prop */
   city: PropTypes.string.isRequired,

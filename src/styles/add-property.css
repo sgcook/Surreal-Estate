@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-form {
+.add-property__form {
   padding: 15px 0;
   margin: 30px auto;
   display: flex;
@@ -14,26 +14,26 @@ form {
   max-width: 30%;
 }
 
-input {
+.property-input {
   margin: 10px;
 }
 
-input, select, .button {
+.add-property__item {
   font-size: 20px;
   border-radius: 8%;
 }
 
-.button {
+.property-button {
   width: 15%;
 }
 
 /* Media Query */
 @media only screen and (max-width: 768px) {
-  form {
+  .add-property__form {
     max-width: 80%;
   }
 
-  .button {
+  .property-button {
     width: 40%;
   }
 }

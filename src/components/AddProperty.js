@@ -51,11 +51,12 @@ const AddProperty = () => {
   return (
     <div className="add-property">
       <h2>Add Property Page</h2>
-      <form onSubmit={handleAddProperty}>
+      <form onSubmit={handleAddProperty} className="add-property__form">
         <Alert message={alert.message} success={alert.isSuccess} />
 
         <label htmlFor="title">
           <input
+            className="add-property__item property-input"
             id="title"
             name="title"
             type="text"
@@ -67,6 +68,7 @@ const AddProperty = () => {
 
         <label htmlFor="type">
           <select
+            className="add-property__item"
             id="type"
             name="type"
             value={fields.type}
@@ -85,6 +87,7 @@ const AddProperty = () => {
 
         <label htmlFor="bedrooms">
           <input
+            className="add-property__item property-input"
             id="bedrooms"
             name="bedrooms"
             type="number"
@@ -96,6 +99,7 @@ const AddProperty = () => {
 
         <label htmlFor="bathrooms">
           <input
+            className="add-property__item property-input"
             id="bathrooms"
             name="bathrooms"
             type="number"
@@ -108,6 +112,7 @@ const AddProperty = () => {
         <label htmlFor="price">
           <span>£</span>
           <input
+            className="add-property__item property-input"
             id="price"
             name="price"
             type="number"
@@ -121,6 +126,7 @@ const AddProperty = () => {
 
         <label htmlFor="city">
           <select
+            className="add-property__item"
             id="city"
             name="city"
             value={fields.city}
@@ -135,6 +141,7 @@ const AddProperty = () => {
 
         <label htmlFor="email">
           <input
+            className="add-property__item property-input"
             id="email"
             name="email"
             type="email"
@@ -144,7 +151,7 @@ const AddProperty = () => {
           />
         </label>
 
-        <button type="submit" className="button">
+        <button className="add-property__item property-button" type="submit">
           Add
         </button>
       </form>

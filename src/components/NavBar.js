@@ -8,7 +8,7 @@ const Navbar = () => {
     <div className="navbar">
       <img className="surrealEstateLogo" src={image} alt="surrealEstateLogo" />
       <ul className="navbar-links">
-        <Link className="navbar-links-item" to="/">
+        <Link className="navbar-links-item" to="/view-properties">
           View Properties
         </Link>
         <Link className="navbar-links-item" to="/add-property">

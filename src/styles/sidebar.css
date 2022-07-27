@@ -2,9 +2,32 @@
   list-style: none;
 }
 
-.sidebar-link {
+.sidebar-item {
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: rgb(0,0,0);
+}
+
+.sidebar-form {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.sidebar-input {
+  width: 100px;
+  margin-right: 5px;
+}
+
+.label {
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.link {
+  padding-left: 10px;
+}
+
+.sort {
+  padding-top: 5px;
 }

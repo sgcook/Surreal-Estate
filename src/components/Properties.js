@@ -24,9 +24,10 @@ const Properties = () => {
   }, []);
 
   const { search } = useLocation();
+
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/v1/PropertyListing${search}`)
+      .get(`http://localhost:3000/api/v1/PropertyListing/${search}`)
       .then(({ data }) => setProperties(data))
       .catch((err) => console.log(err));
   }, [search]);
@@ -37,7 +38,7 @@ const Properties = () => {
       <Sidebar />
       <div className="properties-grid">
         {properties.map((property) => (
-          <PropertyCard {...property} />
+          <PropertyCard {...property} key={property.price} />
         ))}
       </div>
     </div>
