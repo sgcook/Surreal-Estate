@@ -1,21 +1,22 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+import AuthContext from "../utils/AuthContext";
 import PropertyCard from "./PropertyCard";
-import Alert from "./Alert";
 import Sidebar from "./Sidebar";
 import "../styles/properties.css";
+import Alert from "./Alert";
 
-const Properties = () => {
+const Properties = ({ userID }) => {
   const [properties, setProperties] = useState([]);
-  const [alert, setAlert] = useState({ message: "", isSuccess: false });
+  const { alert, setAlert } = useContext(AuthContext);
 
   useEffect(() => {
     axios
       .get("http://localhost:3000/api/v1/PropertyListing/")
       .then(({ data }) => setProperties(data))
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         setAlert({
           message: "Server error. Please try again later.",
           isSuccess: false,
@@ -29,16 +30,48 @@ const Properties = () => {
     axios
       .get(`http://localhost:3000/api/v1/PropertyListing/${search}`)
       .then(({ data }) => setProperties(data))
-      .catch((err) => console.log(err));
+      .catch(() => {
+        setAlert({
+          message: "Server error. Please try again later.",
+          isSuccess: false,
+        });
+      });
   }, [search]);
+
+  const handleSaveProperty = (propertyId) => {
+    axios
+      .post("http://localhost:3000/api/v1/Favourite", {
+        propertyListing: propertyId,
+        fbUserId: userID,
+      })
+      .then(() => {
+        setAlert({
+          message: "Property has been saved.",
+          isSuccess: true,
+        });
+      })
+      .catch(() => {
+        setAlert({
+          message: "Server error. Please try again later.",
+          isSuccess: false,
+        });
+      });
+  };
 
   return (
     <div className="properties">
-      <Alert message={alert.message} success={alert.isSuccess} />
       <Sidebar />
+      <div className="properties-alert">
+        <Alert message={alert.message} success={alert.isSuccess} />
+      </div>
       <div className="properties-grid">
         {properties.map((property) => (
-          <PropertyCard {...property} key={property.price} />
+          <PropertyCard
+            {...property}
+            userID={userID}
+            onSaveProperty={handleSaveProperty}
+            key={property.price}
+          />
         ))}
       </div>
     </div>
@@ -46,3 +79,11 @@ const Properties = () => {
 };
 
 export default Properties;
+
+Properties.propTypes = {
+  userID: PropTypes.string,
+};
+
+Properties.defaultProps = {
+  userID: "",
+};

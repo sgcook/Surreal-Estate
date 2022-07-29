@@ -1,10 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../styles/property-card.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { regular } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStar,
+  faBath,
+  faBed,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 
 const PropertyCard = ({
+  _id,
   bathrooms,
   bedrooms,
   city,
@@ -12,6 +18,8 @@ const PropertyCard = ({
   price,
   title,
   type,
+  userID,
+  onSaveProperty,
 }) => {
   return (
     <div className="property-card">
@@ -21,21 +29,31 @@ const PropertyCard = ({
           {type} - {city}
         </li>
         <li className="bathrooms">
-          {/* <FontAwesomeIcon icon={regular("fa fa-bath")} />  */}
+          <FontAwesomeIcon className="icon" icon={faBath} />
           {bathrooms}
         </li>
         <li className="bedrooms">
-          {/* <FontAwesomeIcon icon={regular("fa fa-bed")} />  */}
+          <FontAwesomeIcon className="icon" icon={faBed} />
           {bedrooms}
         </li>
         <li className="price">£{price}</li>
       </ul>
       <p className="email-p">
         <a href={`mailto:${email}`} className="email-link">
-          {/* <FontAwesomeIcon icon={regular("fa fa-envelope")} /> */}
+          <FontAwesomeIcon className="icon" icon={faEnvelope} />
           Email
         </a>
       </p>
+      {userID && (
+        <button
+          type="button"
+          className="save"
+          onClick={() => onSaveProperty(_id)}
+        >
+          <FontAwesomeIcon className="icon" icon={faStar} />
+          Save
+        </button>
+      )}
     </div>
   );
 };
@@ -43,12 +61,20 @@ const PropertyCard = ({
 export default PropertyCard;
 
 PropertyCard.propTypes = {
+  _id: PropTypes.string,
   title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   bathrooms: PropTypes.string.isRequired,
   bedrooms: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-  /* fix price prop */
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  userID: PropTypes.string,
+  onSaveProperty: PropTypes.func,
+};
+
+PropertyCard.defaultProps = {
+  _id: "",
+  userID: "",
+  onSaveProperty: () => {},
 };

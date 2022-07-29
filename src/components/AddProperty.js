@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import "../styles/add-property.css";
 import Alert from "./Alert";
+import AuthContext from "../utils/AuthContext";
 
 const AddProperty = () => {
   const initialState = {
@@ -21,22 +22,20 @@ const AddProperty = () => {
   };
 
   const [fields, setFields] = useState(initialState.fields);
-  const [alert, setAlert] = useState(initialState.alert);
+  const { alert, setAlert } = useContext(AuthContext);
 
   const handleAddProperty = (event) => {
     event.preventDefault();
     setAlert({ message: "", isSuccess: false });
     axios
       .post(`http://localhost:3000/api/v1/PropertyListing/`, { ...fields })
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         setAlert({
           message: "Property Added",
           isSuccess: true,
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         setAlert({
           message: "Server error. Please try again later.",
           isSuccess: false,
