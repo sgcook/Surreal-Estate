@@ -8,7 +8,7 @@ This app was built as part of my coursework at Manchester Codes. I practiced usi
 
 ## Desktop Version:
 
-![desktop version]()
+![desktop version](./src/desktop.png)
 
 ## Mobile Version:
 
@@ -44,5 +44,6 @@ To run the API locally: [click link and follow the repo's README.md](https://git
 ## If more time...
 
 - Separate "loading" and "no saved properties" on the Saved Properties page
+- Remove bug of being able to save properties twice
 
 Author: Sara Cook
