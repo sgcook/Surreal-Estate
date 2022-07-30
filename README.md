@@ -8,7 +8,7 @@ This app was built as part of my coursework at Manchester Codes. I practiced usi
 
 ## Desktop Version:
 
-![desktop version](./src/desktop.png)
+![desktop version]()
 
 ## Mobile Version:
 

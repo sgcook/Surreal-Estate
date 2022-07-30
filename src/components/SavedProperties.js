@@ -17,7 +17,7 @@ const SavedProperties = () => {
 
   return (
     <div>
-      <h1 className="saved-heading">Saved Properties</h1>
+      <h1 className="heading">Saved Properties</h1>
       {savedHouses.length === 0 && (
         <p className="loading">Loading OR No saved properties!</p>
       )}
