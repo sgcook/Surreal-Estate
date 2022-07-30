@@ -66,7 +66,7 @@ const Properties = ({ userID }) => {
           <Alert message={alert.message} success={alert.isSuccess} />
         </div>
       ) : null}
-      <h1 className="heading">Saved Properties</h1>
+      <h2 className="heading">Properties</h2>
       <div className="properties-grid">
         {properties.map((property) => (
           <PropertyCard

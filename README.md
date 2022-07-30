@@ -8,11 +8,11 @@ This app was built as part of my coursework at Manchester Codes. I practiced usi
 
 ## Desktop Version:
 
-![desktop version]()
+![desktop version](./src//desktop.png)
 
 ## Mobile Version:
 
-![mobile version]()
+![mobile version](./src/mobile.png)
 
 ## How to use:
 
@@ -45,5 +45,6 @@ To run the API locally: [click link and follow the repo's README.md](https://git
 
 - Separate "loading" and "no saved properties" on the Saved Properties page
 - Remove bug of being able to save properties twice
+- Make sidebar collapsible
 
 Author: Sara Cook

@@ -49,7 +49,7 @@ const AddProperty = () => {
 
   return (
     <div className="add-property">
-      <h1 className="heading">Add Property</h1>
+      <h3 className="heading">Add Property</h3>
       <form onSubmit={handleAddProperty} className="add-property__form">
         <Alert message={alert.message} success={alert.isSuccess} />
 
