@@ -11,8 +11,13 @@
 }
 
 .navbar-links {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
   margin: 0;
   padding: 0;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .navbar-links-item {
@@ -24,18 +29,32 @@
   color: rgb(0, 0, 0);
 }
 
+.navbar-facebook-button, .navbar-sign-out {
+  font-size: 20px;
+  background-color: rgb(66, 103, 178);
+  color:rgb(250, 250, 250);
+  padding: 25px;
+  border-style: none;
+}
+
 /* Media Query */
 @media only screen and (max-width: 768px) {
   .surrealEstateLogo {
     height: 70px;
   }
-
+  
   .navbar {
     height: 70px;
   }
-
+  
   .navbar-links-item {
     padding: 1.5vw;
-    padding-left: 5vw;
+    padding-left: 3vw;
+  }
+
+  .navbar-facebook-button, .navbar-sign-out {
+    height: 70px;
+    padding: 5px;
+    font-size: 15px;
   }
 }

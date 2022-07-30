@@ -58,10 +58,8 @@ const PropertyCard = ({
   );
 };
 
-export default PropertyCard;
-
 PropertyCard.propTypes = {
-  _id: PropTypes.string,
+  _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   bathrooms: PropTypes.string.isRequired,
@@ -74,7 +72,8 @@ PropertyCard.propTypes = {
 };
 
 PropertyCard.defaultProps = {
-  _id: "",
   userID: "",
   onSaveProperty: () => {},
 };
+
+export default PropertyCard;

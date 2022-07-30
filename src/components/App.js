@@ -4,7 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./NavBar";
 import Properties from "./Properties";
 import AddProperty from "./AddProperty";
-import AuthContext from "../utils/AuthContext";
+import AlertContext from "../utils/AlertContext";
+import SavedProperties from "./SavedProperties";
 
 const App = () => {
   const [userId, setUserId] = useState("");
@@ -30,7 +31,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <AuthContext.Provider value={{ alert, setAlert }}>
+      <AlertContext.Provider value={{ alert, setAlert }}>
         <Navbar onLogin={handleLogin} userID={userId} onLogout={handleLogout} />
         <Routes>
           <Route
@@ -38,8 +39,9 @@ const App = () => {
             element={<Properties userID={userId} />}
           />
           <Route exact path="/add-property" element={<AddProperty />} />
+          <Route exact path="/saved-properties" element={<SavedProperties />} />
         </Routes>
-      </AuthContext.Provider>
+      </AlertContext.Provider>
     </div>
   );
 };

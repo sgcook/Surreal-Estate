@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import AuthContext from "../utils/AuthContext";
+import AlertContext from "../utils/AlertContext";
 import PropertyCard from "./PropertyCard";
 import Sidebar from "./Sidebar";
 import "../styles/properties.css";
@@ -10,7 +10,7 @@ import Alert from "./Alert";
 
 const Properties = ({ userID }) => {
   const [properties, setProperties] = useState([]);
-  const { alert, setAlert } = useContext(AuthContext);
+  const { alert, setAlert } = useContext(AlertContext);
 
   useEffect(() => {
     axios
@@ -61,9 +61,11 @@ const Properties = ({ userID }) => {
   return (
     <div className="properties">
       <Sidebar />
-      <div className="properties-alert">
-        <Alert message={alert.message} success={alert.isSuccess} />
-      </div>
+      {alert.message ? (
+        <div className="properties-alert">
+          <Alert message={alert.message} success={alert.isSuccess} />
+        </div>
+      ) : null}
       <div className="properties-grid">
         {properties.map((property) => (
           <PropertyCard
@@ -78,8 +80,6 @@ const Properties = ({ userID }) => {
   );
 };
 
-export default Properties;
-
 Properties.propTypes = {
   userID: PropTypes.string,
 };
@@ -87,3 +87,5 @@ Properties.propTypes = {
 Properties.defaultProps = {
   userID: "",
 };
+
+export default Properties;

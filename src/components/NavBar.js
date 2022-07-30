@@ -16,28 +16,33 @@ const Navbar = ({ onLogin, onLogout, userID }) => {
         <Link className="navbar-links-item" to="/add-property">
           Add Property
         </Link>
+        <Link className="navbar-links-item" to="/saved-properties">
+          Saved Properties
+        </Link>
         {userID ? (
-          <button type="button" onClick={onLogout}>
+          <button type="button" className="navbar-sign-out" onClick={onLogout}>
             Sign Out
           </button>
         ) : (
-          <FacebookLogin callback={onLogin} appId="774246670282431" />
+          <FacebookLogin
+            callback={onLogin}
+            appId="774246670282431"
+            cssClass="navbar-facebook-button"
+          />
         )}
       </ul>
     </div>
   );
 };
 
-export default Navbar;
-
 Navbar.propTypes = {
-  onLogin: PropTypes.func,
-  onLogout: PropTypes.func,
+  onLogin: PropTypes.func.isRequired,
+  onLogout: PropTypes.func.isRequired,
   userID: PropTypes.string,
 };
 
 Navbar.defaultProps = {
-  onLogin: () => {},
-  onLogout: () => {},
   userID: "",
 };
+
+export default Navbar;

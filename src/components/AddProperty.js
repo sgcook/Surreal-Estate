@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import "../styles/add-property.css";
 import Alert from "./Alert";
-import AuthContext from "../utils/AuthContext";
+import AlertContext from "../utils/AlertContext";
 
 const AddProperty = () => {
   const initialState = {
@@ -22,7 +22,7 @@ const AddProperty = () => {
   };
 
   const [fields, setFields] = useState(initialState.fields);
-  const { alert, setAlert } = useContext(AuthContext);
+  const { alert, setAlert } = useContext(AlertContext);
 
   const handleAddProperty = (event) => {
     event.preventDefault();
