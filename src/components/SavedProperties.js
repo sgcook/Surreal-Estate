@@ -5,26 +5,15 @@ import "../styles/saved-properties.css";
 
 const SavedProperties = () => {
   const [savedHouses, setSavedHouses] = useState([]);
-  const favProperties = [];
 
   useEffect(() => {
     axios
       .get("http://localhost:3000/api/v1/Favourite/?populate=propertyListing")
-      .then(({ data }) =>
-        data.map((house) => favProperties.push(house.propertyListing))
-      )
+      .then(({ data }) => setSavedHouses(data))
       .catch((err) => {
         console.log({ error1: err });
       });
-    setSavedHouses(favProperties);
-  }, []);
-
-  const handleButton = (savedPrice) => {
-    console.log(favProperties);
-    // const index = favProperties
-    // setSavedHouses(filtered);
-    // console.log(savedHouses);
-  };
+  }, [savedHouses]);
 
   return (
     <div>
@@ -34,11 +23,7 @@ const SavedProperties = () => {
       )}
       <div>
         {savedHouses.map((property) => (
-          <SavedProperty
-            {...property}
-            key={property.price}
-            removeButton={() => handleButton(property.price)}
-          />
+          <SavedProperty {...property} key={property._id} />
         ))}
       </div>
     </div>
