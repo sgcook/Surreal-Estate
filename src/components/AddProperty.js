@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import "../styles/add-property.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBath, faBed } from "@fortawesome/free-solid-svg-icons";
 import Alert from "./Alert";
 import AlertContext from "../utils/AlertContext";
 
@@ -85,6 +87,9 @@ const AddProperty = () => {
         </label>
 
         <label htmlFor="bedrooms">
+          <span>
+            <FontAwesomeIcon className="icon" icon={faBed} />
+          </span>
           <input
             className="add-property__item property-input"
             id="bedrooms"
@@ -97,6 +102,9 @@ const AddProperty = () => {
         </label>
 
         <label htmlFor="bathrooms">
+          <span>
+            <FontAwesomeIcon className="icon" icon={faBath} />
+          </span>
           <input
             className="add-property__item property-input"
             id="bathrooms"
