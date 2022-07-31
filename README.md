@@ -1,6 +1,6 @@
 # Surreal Estate
 
-A property search engine similar to RightMove or Zoopla.
+A property search engine similar to RightMove or Zoopla. Users can sign in with facebook and sign out by clicking the blue button in the top right corner. Users can view the list of properties and then filter the properties using the sidebar. They can search by title, sort by city, price ascending, and price descending. They can also save properties. By clicking "Saved Properties", users can view saved properties and remove properties "Saved Properties."
 
 ## Motivation
 
@@ -44,7 +44,7 @@ To run the API locally: [click link and follow the repo's README.md](https://git
 ## If more time...
 
 - Separate "loading" and "no saved properties" on the Saved Properties page
-- Remove bug of being able to save properties twice
+- Only allow users to view saved properties once they are signed in
 - Make sidebar collapsible
 
 Author: Sara Cook

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import SavedProperty from "./SavedProperty";
 import "../styles/saved-properties.css";
 
-const SavedProperties = () => {
-  const [savedHouses, setSavedHouses] = useState([]);
-
+const SavedProperties = ({ savedHouses, setSavedHouses }) => {
   useEffect(() => {
     axios
       .get("http://localhost:3000/api/v1/Favourite/?populate=propertyListing")
@@ -13,7 +12,7 @@ const SavedProperties = () => {
       .catch((err) => {
         console.log({ error1: err });
       });
-  }, [savedHouses]);
+  }, [savedHouses, setSavedHouses]);
 
   return (
     <div>
@@ -28,6 +27,11 @@ const SavedProperties = () => {
       </div>
     </div>
   );
+};
+
+SavedProperties.propTypes = {
+  savedHouses: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setSavedHouses: PropTypes.func.isRequired,
 };
 
 export default SavedProperties;

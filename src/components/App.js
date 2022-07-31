@@ -10,6 +10,7 @@ import SavedProperties from "./SavedProperties";
 const App = () => {
   const [userId, setUserId] = useState("");
   const [alert, setAlert] = useState({ message: "", isSuccess: false });
+  const [savedHouses, setSavedHouses] = useState([]);
 
   const handleLogin = (response) => {
     setUserId(response.userID);
@@ -36,10 +37,25 @@ const App = () => {
         <Routes>
           <Route
             path="/view-properties"
-            element={<Properties userID={userId} />}
+            element={
+              <Properties
+                userID={userId}
+                savedHouses={savedHouses}
+                setSavedHouses={setSavedHouses}
+              />
+            }
           />
           <Route exact path="/add-property" element={<AddProperty />} />
-          <Route exact path="/saved-properties" element={<SavedProperties />} />
+          <Route
+            exact
+            path="/saved-properties"
+            element={
+              <SavedProperties
+                savedHouses={savedHouses}
+                setSavedHouses={setSavedHouses}
+              />
+            }
+          />
         </Routes>
       </AlertContext.Provider>
     </div>

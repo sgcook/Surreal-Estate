@@ -8,7 +8,7 @@ import Sidebar from "./Sidebar";
 import "../styles/properties.css";
 import Alert from "./Alert";
 
-const Properties = ({ userID }) => {
+const Properties = ({ savedHouses, setSavedHouses, userID }) => {
   const [properties, setProperties] = useState([]);
   const { alert, setAlert } = useContext(AlertContext);
 
@@ -38,8 +38,25 @@ const Properties = ({ userID }) => {
       });
   }, [search]);
 
-  const handleSaveProperty = (propertyId) => {
+  useEffect(() => {
     axios
+      .get("http://localhost:3000/api/v1/Favourite/?populate=propertyListing")
+      .then(({ data }) => setSavedHouses(data))
+      .catch((err) => {
+        console.log({ error1: err });
+      });
+  }, [savedHouses]);
+
+  const handleSaveProperty = (propertyId) => {
+    console.log(savedHouses);
+    const mapped = savedHouses.map((house) => house.propertyListing._id);
+    if (mapped.includes(propertyId)) {
+      return setAlert({
+        message: "Property has already been saved.",
+        isSuccess: false,
+      });
+    }
+    return axios
       .post("http://localhost:3000/api/v1/Favourite", {
         propertyListing: propertyId,
         fbUserId: userID,
@@ -82,6 +99,8 @@ const Properties = ({ userID }) => {
 };
 
 Properties.propTypes = {
+  savedHouses: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setSavedHouses: PropTypes.func.isRequired,
   userID: PropTypes.string,
 };
 
