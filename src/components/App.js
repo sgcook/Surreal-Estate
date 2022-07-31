@@ -46,16 +46,18 @@ const App = () => {
             }
           />
           <Route exact path="/add-property" element={<AddProperty />} />
-          <Route
-            exact
-            path="/saved-properties"
-            element={
-              <SavedProperties
-                savedHouses={savedHouses}
-                setSavedHouses={setSavedHouses}
-              />
-            }
-          />
+          {userId && (
+            <Route
+              exact
+              path="/saved-properties"
+              element={
+                <SavedProperties
+                  savedHouses={savedHouses}
+                  setSavedHouses={setSavedHouses}
+                />
+              }
+            />
+          )}
         </Routes>
       </AlertContext.Provider>
     </div>

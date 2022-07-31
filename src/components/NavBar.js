@@ -10,15 +10,19 @@ const Navbar = ({ onLogin, onLogout, userID }) => {
     <div className="navbar">
       <img className="surrealEstateLogo" src={image} alt="surrealEstateLogo" />
       <ul className="navbar-links">
-        <Link className="navbar-links-item" to="/view-properties">
-          View Properties
-        </Link>
-        <Link className="navbar-links-item" to="/add-property">
-          Add Property
-        </Link>
-        <Link className="navbar-links-item" to="/saved-properties">
-          Saved Properties
-        </Link>
+        {userID && (
+          <div className="navbar-links">
+            <Link className="navbar-links-item" to="/view-properties">
+              View Properties
+            </Link>
+            <Link className="navbar-links-item" to="/add-property">
+              Add Property
+            </Link>
+            <Link className="navbar-links-item" to="/saved-properties">
+              Saved Properties
+            </Link>
+          </div>
+        )}
         {userID ? (
           <button type="button" className="navbar-sign-out" onClick={onLogout}>
             Sign Out
