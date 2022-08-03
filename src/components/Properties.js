@@ -48,7 +48,6 @@ const Properties = ({ savedHouses, setSavedHouses, userID }) => {
   }, [savedHouses]);
 
   const handleSaveProperty = (propertyId) => {
-    console.log(savedHouses);
     const mapped = savedHouses.map((house) => house.propertyListing._id);
     if (mapped.includes(propertyId)) {
       return setAlert({
